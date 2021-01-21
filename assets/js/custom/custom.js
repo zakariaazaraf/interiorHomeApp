@@ -41,10 +41,13 @@ closeMenu.addEventListener('click', ()=>{
 })
 
 document.addEventListener('scroll', (e) => {
+    
     if(window.pageYOffset > 100){
         header.classList.add('bg-scroll')
+        header.firstElementChild.style.padding = ".8rem 0";
     }else{  
         header.classList.remove('bg-scroll')
+        header.firstElementChild.style.padding = "1.7rem 0";
     }
 })
 
