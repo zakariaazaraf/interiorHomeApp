@@ -30,11 +30,13 @@ window.addEventListener('load', (e)=>{
 
 // SHOW THE MENU 
 showMenu.addEventListener('click', ()=>{
+    menu.style.transition = "all .4s ease";
     menu.style.transform = "translateX("+ 0 +"%)";
 })
 
 // HIDE THE MENU
 closeMenu.addEventListener('click', ()=>{
+    menu.style.transition = "all .4s ease";
     menu.style.transform = "translateX("+ 100 +"%)";
 })
 
@@ -47,6 +49,7 @@ document.addEventListener('scroll', (e) => {
 })
 
 window.addEventListener('resize', (e) => {
+    menu.style.transition = "none";
     if(e.target.innerWidth >= 992){
         menu.classList.remove('sided-menu')
         closeMenu.style.display = 'none'
