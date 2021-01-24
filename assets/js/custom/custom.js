@@ -75,6 +75,8 @@ const circles = document.querySelectorAll('.circles .circle')
 const project = document.querySelectorAll('.projects .project')
 let activeCircle = document.querySelector('.circles .circle.active').dataset.id
 console.log(activeCircle)
+let pushWidth = 4;
+
 circlesContainer.addEventListener('click', (e) =>{
 
     if(e.target.hasAttribute('data-id')){
@@ -84,19 +86,24 @@ circlesContainer.addEventListener('click', (e) =>{
 
         e.target.classList.add('active')
 
-        if(e.target.dataset.id < activeCircle){
-            projectsContainer.style.transform = "translateX("+ (3 - e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth+"px)";
-            console.log('Less', activeCircle - e.target.dataset.id)
-        }else if(e.target.dataset.id > activeCircle){
-            projectsContainer.style.transform = "translateX(-"+ (e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth+"px)";
-            console.log('Greater')
-        }else{
-            console.log('None')
-        }
+        if(e.target.dataset.id <= activeCircle){
+
+            projectsContainer.style.transform = 
+                "translateX("+ (4 - e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth+"px)";
+                
+                pushWidth = e.target.dataset.id;
+                console.log('Less',pushWidth )
+        }else if(e.target.dataset.id > pushWidth){
+
+            projectsContainer.style.transform = 
+                "translateX(-"+ (e.target.dataset.id - pushWidth) * project[e.target.dataset.id - 1].clientWidth+"px)";
+                console.log('graeter')
+                activeCircle = e.target.dataset.id
             
+        }   
     } 
     // GET THE ID OF THE ACTIVE CIRCLE
-    activeCircle = e.target.dataset.id
-    console.log(activeCircle)
+    //activeCircle = e.target.dataset.id
+    
 })
 
