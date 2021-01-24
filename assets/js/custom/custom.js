@@ -72,16 +72,23 @@ window.addEventListener('resize', (e) => {
 const projectsContainer = document.querySelector('.portfolio-section .projects')
 const circlesContainer = document.querySelector('.circles')
 const circles = document.querySelectorAll('.circles .circle')
+const project = document.querySelectorAll('.projects .project')
 
 console.log(projectsContainer)
 console.log(circles)
 
 circlesContainer.addEventListener('click', (e) =>{
-    console.log(e.target)
+    if(e.target.hasAttribute('data-id')){
+        circles.forEach(circle => {
+            circle.classList.remove('active');
+        })
+
+        e.target.classList.add('active')
+        console.log(e.target.dataset.id)
+        
+    } 
+        
+    
+    
 })
 
-/* circles.forEach(circle => {
-    circle.addEventListner('click', (e) =>{
-        e.target.classList.add('active')
-    })
-}) */
