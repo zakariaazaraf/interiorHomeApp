@@ -89,14 +89,14 @@ circlesContainer.addEventListener('click', (e) =>{
         if(e.target.dataset.id <= activeCircle){
 
             projectsContainer.style.transform = 
-                "translateX("+ (4 - e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth+"px)";
+                "translateX("+ ((4 - e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth + 194)  +"px)";
                 
                 pushWidth = e.target.dataset.id;
                 console.log('Less',pushWidth )
         }else if(e.target.dataset.id > pushWidth){
 
             projectsContainer.style.transform = 
-                "translateX(-"+ (e.target.dataset.id - pushWidth) * project[e.target.dataset.id - 1].clientWidth+"px)";
+                "translateX(-"+ ((e.target.dataset.id - pushWidth) * project[e.target.dataset.id - 1].clientWidth + 194)  +"px)";
                 console.log('graeter')
                 activeCircle = e.target.dataset.id
             
