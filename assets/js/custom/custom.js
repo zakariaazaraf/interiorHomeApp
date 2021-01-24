@@ -73,22 +73,30 @@ const projectsContainer = document.querySelector('.portfolio-section .projects')
 const circlesContainer = document.querySelector('.circles')
 const circles = document.querySelectorAll('.circles .circle')
 const project = document.querySelectorAll('.projects .project')
-
-console.log(projectsContainer)
-console.log(circles)
-
+let activeCircle = document.querySelector('.circles .circle.active').dataset.id
+console.log(activeCircle)
 circlesContainer.addEventListener('click', (e) =>{
+
     if(e.target.hasAttribute('data-id')){
         circles.forEach(circle => {
             circle.classList.remove('active');
         })
 
         e.target.classList.add('active')
-        console.log(e.target.dataset.id)
-        
+
+        if(e.target.dataset.id < activeCircle){
+            projectsContainer.style.transform = "translateX("+ (3 - e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth+"px)";
+            console.log('Less', activeCircle - e.target.dataset.id)
+        }else if(e.target.dataset.id > activeCircle){
+            projectsContainer.style.transform = "translateX(-"+ (e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth+"px)";
+            console.log('Greater')
+        }else{
+            console.log('None')
+        }
+            
     } 
-        
-    
-    
+    // GET THE ID OF THE ACTIVE CIRCLE
+    activeCircle = e.target.dataset.id
+    console.log(activeCircle)
 })
 
