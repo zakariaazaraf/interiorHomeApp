@@ -67,3 +67,21 @@ window.addEventListener('resize', (e) => {
         
     }  
 })
+
+// START THE PORTFOLIO SWAP FONCTUNALITY
+const projectsContainer = document.querySelector('.portfolio-section .projects')
+const circlesContainer = document.querySelector('.circles')
+const circles = document.querySelectorAll('.circles .circle')
+
+console.log(projectsContainer)
+console.log(circles)
+
+circlesContainer.addEventListener('click', (e) =>{
+    console.log(e.target)
+})
+
+/* circles.forEach(circle => {
+    circle.addEventListner('click', (e) =>{
+        e.target.classList.add('active')
+    })
+}) */
