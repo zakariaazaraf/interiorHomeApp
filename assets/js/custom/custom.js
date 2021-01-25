@@ -44,10 +44,10 @@ document.addEventListener('scroll', (e) => {
     
     if(window.pageYOffset > 100){
         header.classList.add('bg-scroll')
-        header.firstElementChild.style.padding = ".8rem 0";
+        header.firstElementChild.style.padding = ".5rem 0";
     }else{  
         header.classList.remove('bg-scroll')
-        header.firstElementChild.style.padding = "1.7rem 0";
+        header.firstElementChild.style.padding = "1rem 0";
     }
 })
 
@@ -89,14 +89,14 @@ circlesContainer.addEventListener('click', (e) =>{
         if(e.target.dataset.id <= activeCircle){
 
             projectsContainer.style.transform = 
-                "translateX("+ ((4 - e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth + 194)  +"px)";
+                "translateX("+ ((4 - e.target.dataset.id) * project[e.target.dataset.id - 1].clientWidth )  +"px)";
                 
                 pushWidth = e.target.dataset.id;
                 console.log('Less',pushWidth )
         }else if(e.target.dataset.id > pushWidth){
 
             projectsContainer.style.transform = 
-                "translateX(-"+ ((e.target.dataset.id - pushWidth) * project[e.target.dataset.id - 1].clientWidth + 194)  +"px)";
+                "translateX(-"+ ((e.target.dataset.id - pushWidth) * project[e.target.dataset.id - 1].clientWidth )  +"px)";
                 console.log('graeter')
                 activeCircle = e.target.dataset.id
             
