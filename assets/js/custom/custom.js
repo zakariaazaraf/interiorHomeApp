@@ -4,6 +4,7 @@ const menu = document.querySelector('header nav .nav-menu')
 const showMenu = document.querySelector('header .show-menu')
 const closeMenu = document.querySelector('header .close-menu')
 
+/* ======== CUSTOMIZE THE HEADER RELATED TO THE WIDTH TO MAKE IT RESPONSIVE ========= */
 window.addEventListener('load', (e)=>{
     if(window.innerWidth >= 992){
         menu.classList.remove('sided-menu')
@@ -26,6 +27,36 @@ window.addEventListener('load', (e)=>{
     }
     
 })
+
+/* ======== ACTIVE LINK ON THE NAVBAR ========== */
+const navLinks = document.querySelectorAll('.nav-menu a')
+menu.addEventListener('click', (e)=>{
+    if(e.target.hasAttribute('href')){
+        // REMOVE THE ACTIVE CLASS FROM THE NAV'S LINKS
+        navLinks.forEach(link => {
+            link.classList.remove('active')
+        })
+        e.target.classList.add('active')
+        
+    }
+})
+
+/* ======= THE WIDTH OF THR SIDED MENU DEPENDING ON THE WINDOW'S WIDTH ========== */
+
+window.addEventListener('resize', ()=>{
+    if(menu.classList.contains('sided-menu')){
+        if(window.innerWidth > 600){
+            menu.style.width = "50%"
+        }else{
+            menu.style.width = "90%"
+        }
+    }else{
+        menu.style.width = ""
+    }
+    
+    
+})
+
 
 
 // SHOW THE MENU 
@@ -74,7 +105,7 @@ const circlesContainer = document.querySelector('.circles')
 const circles = document.querySelectorAll('.circles .circle')
 const project = document.querySelectorAll('.projects .project')
 let activeCircle = document.querySelector('.circles .circle.active').dataset.id
-console.log(activeCircle)
+
 let pushWidth = 4;
 
 circlesContainer.addEventListener('click', (e) =>{
